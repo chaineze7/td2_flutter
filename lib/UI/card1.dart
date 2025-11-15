@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import '../models/task.dart';
+import '../models/addtask.dart';
 import 'detail.dart';
 
 class Ecran1 extends StatelessWidget {
-  final List<Task> myTasks = Task.generateTask(6);
-
+  final List<Task> myTasks = Task.generateTask(50);
+  final String tag = '';
   Ecran1({super.key});
 
   @override

@@ -9,7 +9,24 @@ void main() {
 class MyTD2App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = MyTheme.dark();
-    return MaterialApp(theme: theme, title: 'TD2', home: Home());
+    // Création du provider pour SettingViewModel
+    return ChangeNotifierProvider(
+      create: (_) {
+        SettingViewModel settingViewModel = SettingViewModel();
+        // getSettings est déjà appelé dans le constructeur
+        return settingViewModel;
+      },
+      child: Consumer<SettingViewModel>(
+        builder: (context, SettingViewModel notifier, child) {
+          return MaterialApp(
+            title: 'TD3',
+            theme: MyTheme.light(),
+            darkTheme: MyTheme.dark(),
+            themeMode: notifier.isDark ? ThemeMode.dark : ThemeMode.light,
+            home: Home(),
+          );
+        },
+      ),
+    );
   }
 }
