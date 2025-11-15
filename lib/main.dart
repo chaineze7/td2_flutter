@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'UI/mytheme.dart';
 import 'ViewModel/home.dart';
-
+import 'package:provider/provider.dart';
+import 'ViewModel/setting_view_model.dart';
 void main() {
   runApp(MyTD2App());
 }
